@@ -85,6 +85,8 @@
         
 
         <script src="{{ asset('assets/admin/js/core/popper.min.js') }}"></script>
+        
+        <script src="{{ asset('assets/admin/js/multistep.js') }}"></script>
 
         <script src="{{ asset('assets/admin/js/core/bootstrap.min.js') }}"></script>
 
@@ -101,6 +103,7 @@
         <script src="{{ asset('assets/admin/js/plugins/jkanban/jkanban.js') }}"></script>
 
         <script src="{{ asset('assets/admin/js/plugins/chartjs.min.js') }}"></script>
+        
         <script>
             var ctx1 = document.getElementById("chart-line-1").getContext("2d");
 

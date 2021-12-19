@@ -46,6 +46,9 @@ Route::group( [
         Route::get('/referel', 'ReferController@index')->name('referel');
         Route::get('/subscribe','SubscribeController@index')->name('subscribe');
         Route::post('/payment','PaymentController@store')->name('payment');
+        Route::get('/subscription', 'PaymentController@subscription')->name('subscription');
+        Route::post('/subscription-payment', 'PaymentController@subscription_post')->name('subscription-payment');
+        // Route::post('/student_data','PaymentController@store')->name('student.data');
 });
 
 
@@ -79,10 +82,11 @@ Route::group( [
 });
 
 Route::group( [
-    'prefix'=>'user-role',
+    'prefix'=>'admin',
     'middleware'=>['auth','check_user_is_active','super_admin'],
     'namespace'=>'Admin'
 ],function(){
+    
     Route::get('/index','UserRoleController@index')->name('admin_user_role_index');
     Route::get('/view/{id}','UserRoleController@view')->name('admin_user_role_view');
     Route::get('/create','UserRoleController@create')->name('admin_user_role_create');
