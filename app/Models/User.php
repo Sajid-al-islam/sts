@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\UserRole','role_id','id');
     }
 
+    public function user_name()
+    {
+        return $this->belongsTo('App\Models\Payment','student_id','id');
+    }
+
     public function getReferralLinkAttribute()
     {
         return $this->referral_link = route('register', ['ref' => $this->username]);
