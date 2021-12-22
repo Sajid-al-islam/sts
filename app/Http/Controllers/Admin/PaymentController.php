@@ -87,6 +87,8 @@ class PaymentController extends Controller
         ]);
 
         $payment->save();
+
+        return view('admin.student.index');
     }
     /**
      * Display the specified resource.

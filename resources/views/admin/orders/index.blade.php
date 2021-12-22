@@ -57,8 +57,12 @@
                   Status
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <li><a class="dropdown-item" value="1">Approve</a></li>
-                  <li><a class="dropdown-item" value="0">Deny</a></li>
+                  <form action="{{ route('orderstatus_change') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="student_id" value="{{ $payment->student_id }}">
+                    <li><button class="dropdown-item" type="submit" name="payment_confirmation" value="1">Approve</button></li>
+                    <li><button class="dropdown-item" type="submit" name="payment_confirmation" value="0" value="0">Deny</button></li>
+                  </form>
                 </ul>
               </div>
             </td>

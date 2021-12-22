@@ -87,6 +87,7 @@ Route::group( [
     'namespace'=>'Admin'
 ],function(){
     Route::get('orders', 'OrderController@index')->name('orders');
+    Route::post('orderstatus_change', 'OrderController@status')->name('orderstatus_change');
     Route::get('/index','UserRoleController@index')->name('admin_user_role_index');
     Route::get('/view/{id}','UserRoleController@view')->name('admin_user_role_view');
     Route::get('/create','UserRoleController@create')->name('admin_user_role_create');

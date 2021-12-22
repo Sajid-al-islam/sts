@@ -23,7 +23,7 @@ class OrderController extends Controller
             $user_info = User::where('id', $info)->get()->pluck('name')->toArray();
         }
         // dd($payment_user_info, $user_info);
-        $payments = Payment::select('id','payment_method', 'mobile_number','transaction_id','payment_confirmation')->get();
+        $payments = Payment::select('id','student_id','payment_method', 'mobile_number','transaction_id','payment_confirmation')->get();
         
         return view('admin.orders.index', [
             'payments' => $payments,
@@ -31,6 +31,17 @@ class OrderController extends Controller
         ]);
     }
 
+    public function status(Request $request, Payment $payment)
+    {
+        
+        $payment->payment_confirmation = $request->payment_confirmation;
+        // dd($request->all());
+        $payment->where('student_id', $request->student_id)->update([
+            'payment_confirmation' => $request->payment_confirmation
+        ]);
+
+        return redirect()->back();
+    }
     /**
      * Show the form for creating a new resource.
      *
