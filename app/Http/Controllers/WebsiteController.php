@@ -8,36 +8,36 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        return view('website.ecommerce.index');
+        return view('website.index');
     }
 
     public function products()
     {
-        return view('website.ecommerce.products');
+        return view('website.products');
     }
 
     public function details()
     {
-        return view('website.ecommerce.product_details');
+        return view('website.product_details');
     }
 
     public function cart()
     {
-        return view('website.ecommerce.cart');
+        return view('website.cart');
     }
 
     public function checkout()
     {
-        return view('website.ecommerce.checkout');
+        return view('website.checkout');
     }
 
     public function wishlist()
     {
-        return view('website.ecommerce.wishlist');
+        return view('website.wishlist');
     }
 
     public function contact()
     {
-        return view('website.ecommerce.contact');
+        return view('website.contact');
     }
 }

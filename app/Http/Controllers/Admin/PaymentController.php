@@ -74,7 +74,6 @@ class PaymentController extends Controller
     }
     public function subscription()
     {
-
         return view('admin.subscribe.subscription');
     }
     public function subscription_post(Request $request)

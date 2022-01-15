@@ -1,0 +1,557 @@
+/* Short use */
+:root {
+  --f-gothic: "Gothic A1", sans-serif;
+  --f-segoe: "Open Sans", sans-serif;
+  --c-white: #ffffff;
+  --c-milk: #ececec;
+  --c-ash: #c5c6c7;
+  --c-blue: #0e75bb;
+  --c-deep: #014471;
+  --c-light: #98cfff;
+  --c-cloud: #89b5d33a;
+  --c-green: #00751b;
+  --c-black: #000000;
+  --fw-light: 300;
+  --fw-book: 400;
+  --fw-med: 500;
+  --fw-bold: 700;
+  --fw-exbold: 800;
+  --fw-black: 900;
+  --shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+p {
+  font-family: var(--f-gothic);
+  font-size: 16px;
+}
+
+/* ===== index.html ===== */
+
+/* Nav Section */
+#nav {
+  background-color: var(--c-ash);
+  padding: 20px 0;
+}
+.nav-menu .menu-item,
+.nav-sign .sign-item,
+.toggle-menu li a {
+  color: var(--c-blue) !important;
+  font-family: var(--f-segoe);
+  font-weight: var(--fw-bold);
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  padding-right: 25px;
+}
+.nav-sign .sign-item {
+  font-weight: var(--fw-exbold) !important;
+}
+.nav-sign li:last-child .sign-item {
+  background-color: var(--c-white);
+  font-weight: var(--fw-book) !important;
+  font-size: 21px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+}
+/* Nav Section end */
+
+/* Banner Section */
+#banner,
+#gyan-box,
+#e-learn,
+#fundraising {
+  margin-bottom: 30px;
+}
+/* Banner Section end */
+
+/* title */
+.section-title h1,
+.div-title h2 {
+  font-family: var(--f-gothic);
+  font-weight: var(--fw-bold);
+  color: var(--c-blue);
+  font-size: 30px;
+  padding: 30px 0;
+}
+.section-title::before,
+.section-title::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  width: 30%;
+  height: 3px;
+  transform: translateY(-50%);
+  background: var(--c-blue);
+}
+.section-title::before {
+  left: 0;
+}
+.section-title::after {
+  right: 0;
+}
+.div-title::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  height: 3px;
+  background: var(--c-blue);
+}
+
+/* title end */
+
+/* Gyan Baksho Section */
+.gyan-div .gyan-item {
+  background-color: var(--c-light);
+  width: 205px;
+  height: 205px;
+  border-radius: 50px;
+}
+/* Gyan Baksho Section end */
+
+/* E-learning Section */
+.elearn-div-inner .elearn-box {
+  background: var(--c-light);
+  border-radius: 15px;
+  width: 100px;
+  height: 100px;
+  margin: 25px 15px 0;
+}
+.elearn-div .elearn-btn a {
+  background-color: var(--c-blue);
+  color: var(--c-white);
+  font-weight: var(--fw-bold);
+  font-family: var(--f-gothic);
+  font-size: 30px;
+  padding: 10px 50px;
+  margin-top: 40px;
+  border-radius: 30px;
+}
+/* E-learning Section end */
+
+/* Fundraising Section */
+#fundraising .fund-div {
+  background-color: var(--c-milk);
+  padding: 50px 100px;
+}
+.fund-div .fund-item p {
+  padding: 20px 0;
+}
+.fund-div .fund-item a {
+  background-color: var(--c-blue);
+  color: var(--c-white);
+  font-size: 21px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  letter-spacing: 1px;
+  box-shadow: var(--shadow);
+}
+.social .social-div {
+  background-color: var(--c-milk);
+  padding: 20px 50px;
+}
+.social-div .social-item h4 {
+  font-weight: var(--fw-black);
+  font-size: 20px;
+}
+.social-div .social-item a {
+  color: var(--c-blue);
+  font-weight: var(--fw-black);
+  padding: 0;
+  font-size: 16px;
+}
+.social .volunteer-div {
+  background-color: var(--c-blue);
+  color: var(--c-white);
+  padding: 50px 30px;
+}
+.social .volunteer-div h6 {
+  font-weight: var(--fw-med);
+  font-size: 18px;
+}
+.social .volunteer-div h2 {
+  font-weight: var(--fw-black);
+  font-size: 26px;
+  letter-spacing: 1.5px;
+}
+.social .volunteer-div a {
+  background-color: var(--c-white);
+  box-shadow: var(--shadow);
+  font-weight: var(--fw-black);
+  border-radius: 10px;
+  font-size: 14px;
+}
+/* Fundraising Section end */
+
+/* Footer Section */
+#footer {
+  background-color: var(--c-blue);
+  color: var(--c-white);
+  margin-top: 100px;
+  padding: 50px 0;
+}
+#sub-footer {
+  background-color: var(--c-deep);
+  color: var(--c-white);
+}
+#footer .footer-title {
+  font-size: 21px;
+  margin-bottom: 30px;
+}
+.contact-div .contact-item {
+  font-size: 15px;
+  padding: 10px 0;
+}
+.contact-div .contact-item i {
+  padding-right: 15px;
+}
+.contact-div .link-item {
+  color: var(--c-white);
+  padding-right: 20px;
+  font-size: 24px;
+}
+#footer .about-div h4 i {
+  font-size: 40px;
+}
+#sub-footer p {
+  font-family: var(--f-gothic);
+  font-size: 14px;
+}
+/* Footer Section end */
+
+/* ===== chat.html ===== */
+
+/* Banner Section */
+.chat-banner .banner-inner {
+  background-image: url(../images/banner-4.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 200px 50px 100px;
+}
+.chat-banner .banner-inner h4 {
+  font-weight: var(--fw-med);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.chat-banner .banner-inner h2 {
+  color: var(--c-blue);
+  font-weight: var(--fw-black);
+  font-size: 35px;
+  margin: 0;
+}
+.chat-banner .banner-inner p {
+  font-family: var(--f-segoe);
+  font-size: 20px;
+  margin: 30px 0;
+}
+.chat-banner .chat-select,
+.chat-banner .chat-search span,
+.chat-banner .chat-search input,
+.chat-banner .chat-search button {
+  font-weight: var(--fw-bold);
+  font-size: 14px;
+  padding: 10px 15px;
+}
+.chat-banner .chat-select {
+  background-color: var(--c-green);
+  color: var(--c-white);
+}
+.chat-banner .chat-search span {
+  margin-right: 0;
+}
+.chat-banner .chat-search input {
+  padding-left: 0;
+}
+.chat-banner .chat-search button {
+  background-color: var(--c-blue);
+  color: var(--c-white);
+  box-shadow: var(--shadow);
+}
+/* Banner Section end*/
+
+/* Student Section */
+#student,
+#sholarship {
+  padding: 50px 0;
+}
+#student h1 {
+  font-weight: var(--fw-black);
+  color: var(--c-blue);
+  font-size: 35px;
+}
+#student p {
+  color: var(--c-blue);
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--c-ash);
+}
+#student .student-item,
+#scholarship .student-item {
+  background-color: var(--c-milk);
+}
+#student .student-item::before,
+#scholarship .student-item::before {
+  position: absolute;
+  background: var(--c-blue);
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+}
+#student .student-item,
+#scholarship .student-item {
+  padding: 20px 30px;
+  margin-bottom: 20px;
+}
+.student-item .student-item-img {
+  border: 4px solid var(--c-white);
+  position: absolute;
+  left: 40px;
+  top: 15px;
+  width: 105px;
+  height: 105px;
+  z-index: 1;
+}
+.student-item .student-img {
+  background-color: var(--c-blue);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.student-item .student-text {
+  margin-top: 130px;
+}
+.student-item .student-text h2 {
+  font-weight: var(--fw-bold);
+  color: var(--c-blue);
+  margin: 0;
+  font-size: 26px;
+}
+.student-item .student-text p {
+  border: none !important;
+  color: var(--c-black) !important;
+  margin: 0;
+  padding: 15px 0 25px;
+}
+.student-item .student-text a {
+  font-weight: var(--fw-bold);
+  color: var(--c-blue);
+  background-color: var(--c-white);
+  border: 3px solid var(--c-blue);
+  border-radius: 25px;
+  font-size: 18px;
+  padding: 5px 15px;
+}
+/* Student Section end */
+
+/* Scholarship Section */
+#scholarship .scholarship-text {
+  background-color: var(--c-cloud);
+  padding: 25px 15px;
+}
+.scholarship-item .scholarship-text p {
+  margin: 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--c-ash);
+}
+#scholarship .student-item {
+  margin-top: 70px;
+}
+/* Scholarship Section end */
+
+/* ===== e-learning.html ===== */
+
+/* Benefit Section */
+#benefit,
+#join,
+#course {
+  margin-bottom: 50px;
+}
+#benefit .benefit-div,
+#benefit .benefit-view {
+  margin-bottom: 70px;
+}
+#benefit .benefit-div h1,
+#parent .parent-div h1 {
+  color: var(--c-blue);
+  text-align: center;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  font-size: 40px;
+  margin: 70px 0 90px;
+}
+.benefit-div .benefit-item,
+.benefit-view .view-item {
+  text-align: center;
+}
+.benefit-div .benefit-item p {
+  font-size: 15px;
+  padding-top: 30px;
+}
+.benefit-view .view-item p {
+  font-weight: var(--fw-med);
+  padding: 50px 10px 0;
+}
+/* Benefit Section end */
+
+/* Join Section */
+.e-learn-banner .elearn-div,
+#e-learn .elearn-div,
+#join .join-div {
+  background-color: var(--c-milk);
+  box-shadow: var(--shadow);
+  padding: 70px;
+  border-radius: 30px;
+}
+.join-div .join-item {
+  text-align: center;
+  border-right: 1px solid var(--c-ash);
+  padding: 0 20px;
+}
+.join-div .join-item h4 {
+  color: var(--c-blue);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  font-size: 30px;
+  padding-top: 35px;
+}
+.join-btn a {
+  background-color: var(--c-blue);
+  color: var(--c-white);
+  font-weight: var(--fw-bold);
+  font-family: var(--f-gothic);
+  font-size: 30px;
+  padding: 10px 30px;
+  margin-top: 40px;
+  border-radius: 30px;
+}
+/* Join Section end */
+
+/* Course Section */
+#course .course-div {
+  margin-bottom: 50px;
+}
+#course .course-div h2 {
+  font-weight: var(--fw-bold);
+  color: var(--c-blue);
+  font-size: 35px;
+  margin-bottom: 5px;
+}
+.course-div .course-subtitle {
+  margin-bottom: 35px;
+}
+.course-div .course-subtitle p {
+  color: var(--c-blue);
+  font-weight: var(--fw-light);
+  margin: 0;
+}
+.course-div .course-subtitle a {
+  color: var(--c-blue);
+  text-decoration: underline dotted var(--c-blue);
+  font-size: 16px;
+}
+.course-div .course-slider,
+.parent-div .parent-slider {
+  padding: 0 50px;
+}
+.course-slider .swiper-button-next,
+.course-slider .swiper-button-prev,
+.parent-slider .swiper-button-next,
+.parent-slider .swiper-button-prev {
+  right: 0 !important;
+  color: var(--c-white);
+  background-color: var(--c-blue);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 5px !important;
+}
+.course-slider .swiper-button-next,
+.parent-slider .swiper-button-next {
+  right: 0 !important;
+}
+.course-slider .swiper-button-prev,
+.parent-slider .swiper-button-prev {
+  left: 0 !important;
+}
+.course-slider .swiper-button-next::after,
+.course-slider .swiper-button-prev::after,
+.parent-slider .swiper-button-next::after,
+.parent-slider .swiper-button-prev::after {
+  content: none;
+}
+.course-div .course-item {
+  background-color: var(--c-milk);
+  border-radius: 5px;
+  padding: 30px 20px;
+}
+.course-div .course-item h4 {
+  font-weight: var(--fw-black);
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+#course .course-div-last,
+#startup .startup-div {
+  background-color: #fafafa;
+  box-shadow: var(--shadow);
+  border-radius: 5px;
+  padding: 70px 50px;
+}
+/* Course Section end */
+
+/* Parent Section */
+.parent-div .parent-item h4 {
+  font-weight: var(--fw-bold);
+  margin: 20px 0 30px;
+}
+/* Parent Section end */
+
+/* ===== e-learning.html ===== */
+
+/* Offer Section */
+#offer,
+#startup {
+  margin-bottom: 50px;
+  color: var(--c-blue);
+}
+#offer h1,
+#startup h1 {
+  font-weight: var(--fw-black);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 40px;
+  padding-bottom: 50px;
+}
+#offer .offer-item {
+  padding: 0 20px;
+}
+#offer .offer-item h6 {
+  font-weight: var(--fw-bold);
+  font-size: 25px;
+  padding-top: 30px;
+}
+/* Offer Section end */
+
+/* Startup Section */
+#startup .startup-div {
+  border-radius: 30px;
+}
+.startup-div .startup-item p {
+  text-align: center;
+  color: var(--c-black);
+  font-weight: var(--fw-med);
+  padding: 10px 15px 0;
+}
+.startup-div .join-btn a {
+  box-shadow: var(--shadow);
+}
+/* Startup Section end */

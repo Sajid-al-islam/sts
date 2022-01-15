@@ -1,886 +1,760 @@
+@extends('admin.layouts.admin')
 
-<!doctype html>
-<html class="no-js" lang="en" dir="ltr">
+@section('content')
 
-<head>
-    <meta charset="utf-8"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <title>:: e-Learn:: Education Dashboard </title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
-    <!-- plugin css file  -->
-    <link rel="stylesheet" href="../node_modules/owl.carousel2/dist/assets/owl.carousel.min.css" />
-    <!-- project css file  -->
-    <link rel="stylesheet" href="{{ asset('/assets/admin/css/e-learn.style.min.css') }}">
-</head>
-<body>
-
-<div id="elearn-layout" class="theme-purple">
-    <!-- sidebar -->
-    <div class="sidebar px-4 py-4 py-md-4  me-0">
-        <div class="d-flex flex-column h-100">
-            <a href="index.html" class="mb-0 brand-icon">
-                <span class="logo-icon">
-                    <svg  width="35" height="35" fill="currentColor" class="bi bi-app-indicator" viewBox="0 0 16 16">
-                        <path d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z"/>
-                        <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    </svg>
-                </span>
-                <span class="logo-text">e-Learn</span>
-            </a>
-            <!-- Menu: main ul -->
-            <ul class="menu-list flex-grow-1 mt-3">
-                <li><a class="m-link active" href="index.html"><i class="icofont-ui-home"></i><span>Dashboard</span></a></li>
-                <li><a class="m-link" href="classes.html"><i class="icofont-read-book-alt"></i> <span>Classes</span></a></li>
-                <li><a class="m-link" href="students.html"><i class="icofont-group-students"></i> <span>Students</span></a></li>
-                <li class="collapsed"><a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Teachers" href="#"><i class="icofont-teacher"></i><span>Teachers</span><span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <ul class="sub-menu collapse" id="menu-Teachers">
-                        <li><a class="ms-link" href="all-teachers.html"><span>Teachers</span></a></li>
-                        <li><a class="ms-link" href="teachers-info.html"><span>Teachers Profile</span></a></li>
-                    </ul>
-                </li>
-                <li><a class="m-link" href="video-class.html"><i class="icofont-black-board"></i> <span>Video Classes</span></a></li>
-                <li class="collapsed"><a class="m-link" data-bs-toggle="collapse" data-bs-target="#corses-Components" href="#"><i class="icofont-certificate"></i> <span>Courses</span><span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
-                    <ul class="sub-menu collapse" id="corses-Components">
-                        <li><a class="ms-link" href="courses.html"><span>Courses</span></a></li>
-                        <li><a class="ms-link" href="purchase.html"><span>Course Purchase</span></a></li>
-                    </ul>
-                </li>
-                <li><a class="m-link" href="chat.html"><i class="icofont-ui-text-chat"></i> <span>Massages</span></a></li>
-                <li><a class="m-link" href="reviews.html"><i class="icofont-match-review"></i> <span>Reviews</span></a></li>
-                <li><a class="m-link" href="file-storage/index.html"><i class="icofont-cloud-upload"></i> <span>File Cloud</span></a></li>
-                <li><a class="m-link" href="ui-elements/ui-alerts.html"><i class="icofont-paint"></i> <span>UI Components</span></a></li>
-            </ul>
-            <!-- Theme: Switch Theme -->
-            <ul class="list-unstyled mb-0">
-                <li class="d-flex align-items-center justify-content-center">
-                    <div class="form-check form-switch theme-switch">
-                        <input class="form-check-input" type="checkbox" id="theme-switch">
-                        <label class="form-check-label" for="theme-switch">Enable Dark Mode!</label>
-                    </div>
-                </li>
-                <li class="d-flex align-items-center justify-content-center">
-                    <div class="form-check form-switch theme-rtl">
-                        <input class="form-check-input" type="checkbox" id="theme-rtl">
-                        <label class="form-check-label" for="theme-rtl">Enable RTL Mode!</label>
-                    </div>
-                </li>
-            </ul>
-            <!-- Menu: menu collepce btn -->
-            <button type="button" class="btn btn-link sidebar-mini-btn text-light">
-                <span class="ms-2"><i class="icofont-bubble-right"></i></span>
-            </button>
-        </div>
-    </div>
-
-    <!-- main body area -->
-    <div class="main px-lg-4 px-md-4">
-
-        <!-- Body: Header -->
-        <div class="header">
-            <nav class="navbar py-4">
-                <div class="container-xxl">
-    
-                    <!-- header rightbar icon -->
-                    <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
-                        <div class="d-flex">
-                            <a class="nav-link text-primary collapsed" href="help.html" title="Get Help">
-                                <i class="icofont-info-square fs-5"></i>
-                            </a>
-                            <div class="avatar-list avatar-list-stacked px-3">
-                                <img class="avatar rounded-circle" src="assets/images/xs/avatar2.jpg" alt="">
-                                <img class="avatar rounded-circle" src="assets/images/xs/avatar1.jpg" alt="">
-                                <img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
-                                <img class="avatar rounded-circle" src="assets/images/xs/avatar4.jpg" alt="">
-                                <img class="avatar rounded-circle" src="assets/images/xs/avatar7.jpg" alt="">
-                                <img class="avatar rounded-circle" src="assets/images/xs/avatar8.jpg" alt="">
-                                <span class="avatar rounded-circle text-center pointer" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ps ps--active-y">
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-xl-8 col-lg-7">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card overflow-hidden">
+                            <div class="card-header p-3 pb-0">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Visitors</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    5,927
+                                    <span class="text-success text-sm font-weight-bolder">+55%</span>
+                                </h5>
                             </div>
-                        </div>
-                        <div class="dropdown notifications zindex-popover">
-                            <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown">
-                                <i class="icofont-alarm fs-5"></i>
-                                <span class="pulse-ring"></span>
-                            </a>
-                            <div id="NotificationsDiv" class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-sm-end p-0 m-0">
-                                <div class="card border-0 w380">
-                                    <div class="card-header border-0 p-3">
-                                        <h5 class="mb-0 font-weight-light d-flex justify-content-between">
-                                            <span>Notifications</span>
-                                            <span class="badge text-white">14</span>
-                                        </h5>
-                                    </div>
-                                    <div class="tab-content card-body">
-                                        <div class="tab-pane fade show active">
-                                            <ul class="list-unstyled list mb-0">
-                                                <li class="py-2 mb-1 border-bottom">
-                                                    <a href="javascript:void(0);" class="d-flex">
-                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar1.jpg" alt="">
-                                                        <div class="flex-fill ms-2">
-                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Molly Cornish</span> <small>2MIN</small></p>
-                                                            <span class="">Added  2021-02-19 e-Learn links_no_expiration_report.csv <span class="badge bg-success">Review</span></span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="py-2 mb-1 border-bottom">
-                                                    <a href="javascript:void(0);" class="d-flex">
-                                                        <div class="avatar rounded-circle no-thumbnail">DF</div>
-                                                        <div class="flex-fill ms-2">
-                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Diane Fisher</span> <small>13MIN</small></p>
-                                                            <span class="">Server added Get Started with e-Learn.pdf</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="py-2 mb-1 border-bottom">
-                                                    <a href="javascript:void(0);" class="d-flex">
-                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
-                                                        <div class="flex-fill ms-2">
-                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Andrea Gill</span> <small>1HR</small></p>
-                                                            <span class="">Server added Document.docx</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="py-2 mb-1 border-bottom">
-                                                    <a href="javascript:void(0);" class="d-flex">
-                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar5.jpg" alt="">
-                                                        <div class="flex-fill ms-2">
-                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Diane Fisher</span> <small>13MIN</small></p>
-                                                            <span class="">Add folder on Server</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="py-2 mb-1 border-bottom">
-                                                    <a href="javascript:void(0);" class="d-flex">
-                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar6.jpg" alt="">
-                                                        <div class="flex-fill ms-2">
-                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Andrea Gill</span> <small>1HR</small></p>
-                                                            <span class="">Delete folder on Server</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="py-2">
-                                                    <a href="javascript:void(0);" class="d-flex">
-                                                        <img class="avatar rounded-circle" src="assets/images/xs/avatar7.jpg" alt="">
-                                                        <div class="flex-fill ms-2">
-                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Zoe Wright</span> <small class="">1DAY</small></p>
-                                                            <span class="">The generated Lorem Ipsum</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <a class="card-footer text-center border-top-0" href="#"> View all notifications</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
-                            <div class="u-info me-2">
-                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">Molly Cornish</span></p>
-                                <small>Student Profile</small>
-                            </div>
-                            <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
-                                <img class="avatar lg rounded-circle img-thumbnail" src="../dist/assets/images/profile_av.png" alt="profile">
-                            </a>
-                            <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
-                                <div class="card border-0 w280">
-                                    <div class="card-body pb-0">
-                                        <div class="d-flex py-1">
-                                            <img class="avatar rounded-circle" src="../dist/assets/images/profile_av.png" alt="profile">
-                                            <div class="flex-fill ms-3">
-                                                <p class="mb-0"><span class="font-weight-bold">Molly Cornish</span></p>
-                                                <small class="">molly.cornish@gamil.com</small>
-                                            </div>
-                                        </div>
-                                        <div><hr class="dropdown-divider border-dark"></div>
-                                    </div>
-                                    <div class="list-group m-2 ">
-                                        <a href="students.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-graduate-alt fs-6 me-3"></i>Student Profile</a>
-                                        <a href="video-class.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-black-board fs-6 me-3"></i>Video Class</a>
-                                        <a href="../dist/ui-elements/auth-signin.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Signout</a>
-                                        <div><hr class="dropdown-divider border-dark"></div>
-                                        <a href="../dist/ui-elements/auth-signup.html" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Add personal account</a>
-                                    </div>
+                            <div class="card-body p-0">
+                                <div class="chart">
+                                    <canvas id="chart-line-1" class="chart-canvas" height="100" style="display: block; box-sizing: border-box; height: 100px; width: 213.3px;" width="213"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
-    
-                    <!-- menu toggler -->
-                    <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
-                        <span class="fa fa-bars"></span>
-                    </button>
-    
-                    <!-- main menu Search-->
-                    <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
-                        <div class="input-group flex-nowrap input-group-lg">
-                            <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
-                            <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
-                            <button type="button" class="input-group-text add-member-top" id="addon-wrappingone" data-bs-toggle="modal" data-bs-target="#addUser"><i class="fa fa-plus"></i></button>
+                    <div class="col-sm-4 mt-sm-0 mt-4">
+                        <div class="card overflow-hidden">
+                            <div class="card-header p-3 pb-0">
+                                <p class="text-sm mb-0 text-capitalize font-weight-bold">Income</p>
+                                <h5 class="font-weight-bolder mb-0">
+                                    $130,832
+                                    <span class="text-success text-sm font-weight-bolder">+90%</span>
+                                </h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="chart">
+                                    <canvas id="chart-line-2" class="chart-canvas" height="100" style="display: block; box-sizing: border-box; height: 100px; width: 213.3px;" width="213"></canvas>
+                                </div>
+                            </div>
                         </div>
                     </div>
-    
+                    <div class="col-sm-4 mt-sm-0 mt-4">
+                        <div class="card border h-100">
+                            <div class="card-body d-flex flex-column justify-content-center text-center">
+                                <a href="javascript:;">
+                                    <i class="fa fa-plus text-secondary text-sm mb-1" aria-hidden="true"></i>
+                                    <h6 class="text-secondary">New tab</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </nav>
-        </div>
-
-        <!-- Body: Body -->
-        <div class="body d-flex py-lg-3 py-md-2">
-            <div class="container-xxl">
-                <div class="row clearfix g-3">
-                    <div class="col-lg-8 col-md-12 flex-column">
-                        <div class="row row-deck g-3">
-                            <div class="col-12 col-xl-6 col-lg-12">
-                                <div class="card mb-3 color-bg-200">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-12 col-lg-5 order-lg-2">
-                                                <div class="text-center p-4">
-                                                    <img src="assets/images/study.svg" alt="..." class="img-fluid set-md-img">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-lg-7 order-lg-1">
-                                                <h3 class=" mb-3">Welcome back, <span class="fw-bold">Molly</span></h3>
-                                                <p class="line-height-custom mb-0">Your Study Completed <span class="secondary-color">72%</span> of the tasks.</p>
-                                                <p class="line-height-custom">Progress is  <span class="secondary-color">Very good!</span></p>
-                                                <a class="btn bg-secondary text-light btn-lg lift" href="http://pixelwibes.com/" target="_blank">Free Inquire</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card widget-calendar h-100">
+                            <!-- Card header -->
+                            <div class="card-header p-3 pb-0">
+                                <h6 class="mb-0">Calendar</h6>
+                                <div class="d-flex">
+                                    <div class="p text-sm font-weight-bold mb-0 widget-calendar-day">Saturday</div>
+                                    <span>,&nbsp;</span>
+                                    <div class="p text-sm font-weight-bold mb-1 widget-calendar-year">2021</div>
                                 </div>
                             </div>
-                            <div class="col-12 col-xl-6 col-lg-12">
-                                <div class="card mb-3 bg-secondary">
-                                    <div class="card-body text-white d-flex flex-column">
-                                        <div class="d-flex align-items-center mb-auto mt-3">
-                                            <div><i class="icofont-license fs-1"></i></div>
-                                            <div class="flex-fill ms-3 text-truncate">
-                                                <h5 class="mb-0">Advanced Learner</h5>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between mb-3">
-                                            <h4>Level 3</h4>
-                                            <span class="small"> 2 Course, 25 Point to reach Level 4</span>
-                                        </div>
-                                        <div class="progress" style="height: 10px;">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar bg-warning ms-1" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar bg-warning ms-1" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 color-bg-200">
-                            <div class="card-header py-3">
-                                <h6 class="mb-0 fw-bold ">Time Spending on Learning</h6>
-                            </div>
-                            <div class="card-body">
-                                <div id="apex-basic-column"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="card-header py-3 px-0 no-bg border-0 bg-transparent">
-                                <h6 class="mb-0 fw-bold ">Other Courses </h6>
-                                <span class="text-muted">some other courses to join now </span>
-                            </div>
-                            <div class="row row-deck">
-                                <div class="col-md-12">
-                                    <div class="owl-carousel owl-theme owl-carouseltwo">
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="d-flex align-items-center justify-content-between">
-                                                        <div class="lesson_name">
-                                                            <h6 class="mb-0 fw-bold  fs-6  mb-2">Environmental Engineering</h6>
-                                                        </div>
-                                                        <div class="btn-group dropup">
-                                                            <a href="#" class="nav-link py-2 px-3 text-muted" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                            <ul class="dropdown-menu border-0 shadow dropdown-menu-end">
-                                                                <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                                <li><a class="dropdown-item" href="#">Share</a></li>
-                                                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar"><img class="avatar rounded-circle" src="assets/images/xs/avatar12.jpg" alt=""></div>
-                                                        <div class="flex-fill ms-2 text-truncate">
-                                                            <div class="">Diane Fisher</div>
-                                                        </div>
-                                                        <a href="courses.html" class="btn btn-primary btn-sm" alt="join">Join Now</a>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="row g-2">
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-files-stack "></i>
-                                                                <span class="ms-2">15 Lessons</span>
+                            <!-- Card body -->
+                            <div class="card-body p-3">
+                                <div data-toggle="widget-calendar" class="fc fc-media-screen fc-direction-ltr fc-theme-standard">
+                                    <div class="fc-view-harness fc-view-harness-passive">
+                                        <div class="fc-daygrid fc-dayGridMonth-view fc-view">
+                                            <table class="fc-scrollgrid">
+                                                <thead>
+                                                    <tr class="fc-scrollgrid-section fc-scrollgrid-section-header">
+                                                        <td>
+                                                            <div class="fc-scroller-harness">
+                                                                <div class="fc-scroller" style="overflow: visible;">
+                                                                    <table class="fc-col-header" style="width: 644px;">
+                                                                        <colgroup></colgroup>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <th class="fc-col-header-cell fc-day fc-day-sun">
+                                                                                    <div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion">Sun</a></div>
+                                                                                </th>
+                                                                                <th class="fc-col-header-cell fc-day fc-day-mon">
+                                                                                    <div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion">Mon</a></div>
+                                                                                </th>
+                                                                                <th class="fc-col-header-cell fc-day fc-day-tue">
+                                                                                    <div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion">Tue</a></div>
+                                                                                </th>
+                                                                                <th class="fc-col-header-cell fc-day fc-day-wed">
+                                                                                    <div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion">Wed</a></div>
+                                                                                </th>
+                                                                                <th class="fc-col-header-cell fc-day fc-day-thu">
+                                                                                    <div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion">Thu</a></div>
+                                                                                </th>
+                                                                                <th class="fc-col-header-cell fc-day fc-day-fri">
+                                                                                    <div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion">Fri</a></div>
+                                                                                </th>
+                                                                                <th class="fc-col-header-cell fc-day fc-day-sat">
+                                                                                    <div class="fc-scrollgrid-sync-inner"><a class="fc-col-header-cell-cushion">Sat</a></div>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-timer "></i>
-                                                                <span class="ms-2">3 Month</span>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="fc-scrollgrid-section fc-scrollgrid-section-body">
+                                                        <td>
+                                                            <div class="fc-scroller-harness">
+                                                                <div class="fc-scroller" style="overflow: visible;">
+                                                                    <div class="fc-daygrid-body fc-daygrid-body-unbalanced fc-daygrid-body-natural" style="width: 644px;">
+                                                                        <table class="fc-scrollgrid-sync-table" style="width: 644px;">
+                                                                            <colgroup></colgroup>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sun fc-day-past fc-day-other" data-date="2020-11-29">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">29</a></div>
+                                                                                            <div class="fc-daygrid-day-events">
+                                                                                                <div class="fc-daygrid-event-harness">
+                                                                                                    <a
+                                                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past bg-gradient-success"
+                                                                                                    >
+                                                                                                        <div class="fc-event-main">
+                                                                                                            <div class="fc-event-main-frame">
+                                                                                                                <div class="fc-event-title-container"><div class="fc-event-title fc-sticky">All day conference</div></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="fc-event-resizer fc-event-resizer-end"></div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-mon fc-day-past fc-day-other" data-date="2020-11-30">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">30</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-tue fc-day-past" data-date="2020-12-01">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">1</a></div>
+                                                                                            <div class="fc-daygrid-day-events">
+                                                                                                <div class="fc-daygrid-event-harness">
+                                                                                                    <a
+                                                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past bg-gradient-info"
+                                                                                                    >
+                                                                                                        <div class="fc-event-main">
+                                                                                                            <div class="fc-event-main-frame">
+                                                                                                                <div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Meeting with Mary</div></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="fc-event-resizer fc-event-resizer-end"></div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-wed fc-day-past" data-date="2020-12-02">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">2</a></div>
+                                                                                            <div class="fc-daygrid-day-events">
+                                                                                                <div class="fc-daygrid-event-harness">
+                                                                                                    <a
+                                                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past bg-gradient-warning"
+                                                                                                    >
+                                                                                                        <div class="fc-event-main">
+                                                                                                            <div class="fc-event-main-frame">
+                                                                                                                <div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Cyber Week</div></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="fc-event-resizer fc-event-resizer-end"></div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-thu fc-day-past" data-date="2020-12-03">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">3</a></div>
+                                                                                            <div class="fc-daygrid-day-events">
+                                                                                                <div class="fc-daygrid-event-harness">
+                                                                                                    <a
+                                                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past bg-gradient-danger"
+                                                                                                    >
+                                                                                                        <div class="fc-event-main">
+                                                                                                            <div class="fc-event-main-frame">
+                                                                                                                <div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Winter Hackaton</div></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="fc-event-resizer fc-event-resizer-end"></div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-fri fc-day-past" data-date="2020-12-04">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">4</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sat fc-day-past" data-date="2020-12-05">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">5</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sun fc-day-past" data-date="2020-12-06">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">6</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-mon fc-day-past" data-date="2020-12-07">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">7</a></div>
+                                                                                            <div class="fc-daygrid-day-events" style="padding-bottom: 29.125px;">
+                                                                                                <div class="fc-daygrid-event-harness fc-daygrid-event-harness-abs" style="right: -92px;">
+                                                                                                    <a
+                                                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past bg-gradient-warning"
+                                                                                                    >
+                                                                                                        <div class="fc-event-main">
+                                                                                                            <div class="fc-event-main-frame">
+                                                                                                                <div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Digital event</div></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="fc-event-resizer fc-event-resizer-end"></div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-tue fc-day-past" data-date="2020-12-08">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">8</a></div>
+                                                                                            <div class="fc-daygrid-day-events" style="padding-bottom: 29.125px;"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-wed fc-day-past" data-date="2020-12-09">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">9</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-thu fc-day-past" data-date="2020-12-10">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">10</a></div>
+                                                                                            <div class="fc-daygrid-day-events">
+                                                                                                <div class="fc-daygrid-event-harness">
+                                                                                                    <a
+                                                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past bg-gradient-primary"
+                                                                                                    >
+                                                                                                        <div class="fc-event-main">
+                                                                                                            <div class="fc-event-main-frame">
+                                                                                                                <div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Marketing event</div></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="fc-event-resizer fc-event-resizer-end"></div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-fri fc-day-past" data-date="2020-12-11">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">11</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sat fc-day-past" data-date="2020-12-12">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">12</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sun fc-day-past" data-date="2020-12-13">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">13</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-mon fc-day-past" data-date="2020-12-14">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">14</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-tue fc-day-past" data-date="2020-12-15">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">15</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-wed fc-day-past" data-date="2020-12-16">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">16</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-thu fc-day-past" data-date="2020-12-17">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">17</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-fri fc-day-past" data-date="2020-12-18">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">18</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sat fc-day-past" data-date="2020-12-19">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">19</a></div>
+                                                                                            <div class="fc-daygrid-day-events">
+                                                                                                <div class="fc-daygrid-event-harness">
+                                                                                                    <a
+                                                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past bg-gradient-danger"
+                                                                                                    >
+                                                                                                        <div class="fc-event-main">
+                                                                                                            <div class="fc-event-main-frame">
+                                                                                                                <div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Dinner with Family</div></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="fc-event-resizer fc-event-resizer-end"></div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sun fc-day-past" data-date="2020-12-20">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">20</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-mon fc-day-past" data-date="2020-12-21">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">21</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-tue fc-day-past" data-date="2020-12-22">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">22</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-wed fc-day-past" data-date="2020-12-23">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">23</a></div>
+                                                                                            <div class="fc-daygrid-day-events">
+                                                                                                <div class="fc-daygrid-event-harness">
+                                                                                                    <a
+                                                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past bg-gradient-info"
+                                                                                                    >
+                                                                                                        <div class="fc-event-main">
+                                                                                                            <div class="fc-event-main-frame">
+                                                                                                                <div class="fc-event-title-container"><div class="fc-event-title fc-sticky">Black Friday</div></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="fc-event-resizer fc-event-resizer-end"></div>
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-thu fc-day-past" data-date="2020-12-24">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">24</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-fri fc-day-past" data-date="2020-12-25">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">25</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sat fc-day-past" data-date="2020-12-26">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">26</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sun fc-day-past" data-date="2020-12-27">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">27</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-mon fc-day-past" data-date="2020-12-28">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">28</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-tue fc-day-past" data-date="2020-12-29">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">29</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-wed fc-day-past" data-date="2020-12-30">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">30</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-thu fc-day-past" data-date="2020-12-31">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">31</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-fri fc-day-past fc-day-other" data-date="2021-01-01">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">1</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sat fc-day-past fc-day-other" data-date="2021-01-02">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">2</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sun fc-day-past fc-day-other" data-date="2021-01-03">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">3</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-mon fc-day-past fc-day-other" data-date="2021-01-04">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">4</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-tue fc-day-past fc-day-other" data-date="2021-01-05">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">5</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-wed fc-day-past fc-day-other" data-date="2021-01-06">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">6</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-thu fc-day-past fc-day-other" data-date="2021-01-07">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">7</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-fri fc-day-past fc-day-other" data-date="2021-01-08">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">8</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                    <td class="fc-daygrid-day fc-day fc-day-sat fc-day-past fc-day-other" data-date="2021-01-09">
+                                                                                        <div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">
+                                                                                            <div class="fc-daygrid-day-top"><a class="fc-daygrid-day-number">9</a></div>
+                                                                                            <div class="fc-daygrid-day-events"></div>
+                                                                                            <div class="fc-daygrid-day-bg"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-group-students "></i>
-                                                                <span class="ms-2">320 Students</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-rating "></i>
-                                                                <span class="ms-2">4.5</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                                        <h4 class="small fw-bold mb-0">Students Join</h4>
-                                                        <span class="small">Student Bench 400</span>
-                                                    </div>
-                                                    <div class="progress" style="height: 8px;">
-                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 28%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="d-flex align-items-center justify-content-between">
-                                                        <div class="lesson_name">
-                                                            <h6 class="mb-0 fw-bold  fs-6  mb-2">Farm Management</h6>
-                                                        </div>
-                                                        <div class="btn-group dropup">
-                                                            <a href="#" class="nav-link py-2 px-3 text-muted" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                            <ul class="dropdown-menu border-0 shadow dropdown-menu-end">
-                                                                <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                                <li><a class="dropdown-item" href="#">Share</a></li>
-                                                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar"><img class="avatar rounded-circle" src="assets/images/xs/avatar10.jpg" alt=""></div>
-                                                        <div class="flex-fill ms-2 text-truncate">
-                                                            <div class="">Andrea Gill</div>
-                                                        </div>
-                                                        <a href="courses.html" class="btn btn-primary btn-sm" alt="join">Join Now</a>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="row g-2">
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-files-stack "></i>
-                                                                <span class="ms-2">52 Lessons</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-timer "></i>
-                                                                <span class="ms-2">4 Month</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-group-students "></i>
-                                                                <span class="ms-2">120 Students</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-rating "></i>
-                                                                <span class="ms-2">4</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                                        <h4 class="small fw-bold mb-0">Students Join</h4>
-                                                        <span class="small">Student Bench 150</span>
-                                                    </div>
-                                                    <div class="progress" style="height: 8px;">
-                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 28%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="d-flex align-items-center justify-content-between">
-                                                        <div class="lesson_name">
-                                                            <h6 class="mb-0 fw-bold  fs-6  mb-2">Oil & Gas Operations</h6>
-                                                        </div>
-                                                        <div class="btn-group dropup">
-                                                            <a href="#" class="nav-link py-2 px-3 text-muted" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                            <ul class="dropdown-menu border-0 shadow dropdown-menu-end">
-                                                                <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                                <li><a class="dropdown-item" href="#">Share</a></li>
-                                                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar"><img class="avatar rounded-circle" src="assets/images/xs/avatar5.jpg" alt=""></div>
-                                                        <div class="flex-fill ms-2 text-truncate">
-                                                            <div class="">Andrea Gill</div>
-                                                        </div>
-                                                        <a href="courses.html" class="btn btn-primary btn-sm" alt="join">Join Now</a>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="row g-2">
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-files-stack "></i>
-                                                                <span class="ms-2">52 Lessons</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-timer "></i>
-                                                                <span class="ms-2">2 Month</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-group-students "></i>
-                                                                <span class="ms-2">220 Students</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-rating "></i>
-                                                                <span class="ms-2">4.5</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                                        <h4 class="small fw-bold mb-0">Students Join</h4>
-                                                        <span class="small">Student Bench 350</span>
-                                                    </div>
-                                                    <div class="progress" style="height: 8px;">
-                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 28%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="d-flex align-items-center justify-content-between">
-                                                        <div class="lesson_name">
-                                                            <h6 class="mb-0 fw-bold  fs-6  mb-2">Telecommunications</h6>
-                                                        </div>
-                                                        <div class="btn-group dropup">
-                                                            <a href="#" class="nav-link py-2 px-3 text-muted" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                            <ul class="dropdown-menu border-0 shadow dropdown-menu-end">
-                                                                <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                                <li><a class="dropdown-item" href="#">Share</a></li>
-                                                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar"><img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt=""></div>
-                                                        <div class="flex-fill ms-2 text-truncate">
-                                                            <div class="">Karen Clark</div>
-                                                        </div>
-                                                        <a href="courses.html" class="btn btn-primary btn-sm" alt="join">Join Now</a>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="row g-2">
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-files-stack "></i>
-                                                                <span class="ms-2">12 Lessons</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-timer "></i>
-                                                                <span class="ms-2">28 Days</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-group-students "></i>
-                                                                <span class="ms-2">78 Students</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-rating "></i>
-                                                                <span class="ms-2">4.5</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                                        <h4 class="small fw-bold mb-0">Students Join</h4>
-                                                        <span class="small">Student Bench 100</span>
-                                                    </div>
-                                                    <div class="progress" style="height: 8px;">
-                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 28%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="d-flex align-items-center justify-content-between">
-                                                        <div class="lesson_name">
-                                                            <h6 class="mb-0 fw-bold  fs-6  mb-2">Power and Energy Engineering</h6>
-                                                        </div>
-                                                        <div class="btn-group dropup">
-                                                            <a href="#" class="nav-link py-2 px-3 text-muted" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                            <ul class="dropdown-menu border-0 shadow dropdown-menu-end">
-                                                                <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                                <li><a class="dropdown-item" href="#">Share</a></li>
-                                                                <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar"><img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt=""></div>
-                                                        <div class="flex-fill ms-2 text-truncate">
-                                                            <div class="">Karen Clark</div>
-                                                        </div>
-                                                        <a href="courses.html" class="btn btn-primary btn-sm" alt="join">Join Now</a>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="row g-2">
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-files-stack "></i>
-                                                                <span class="ms-2">52 Lessons</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-timer "></i>
-                                                                <span class="ms-2">2 Month</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-group-students "></i>
-                                                                <span class="ms-2">88 Students</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-ui-rating "></i>
-                                                                <span class="ms-2">4</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                                        <h4 class="small fw-bold mb-0">Students Join</h4>
-                                                        <span class="small">Student Bench 100</span>
-                                                    </div>
-                                                    <div class="progress" style="height: 8px;">
-                                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 32%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="card mb-3 color-bg-200">
-                            <div class="card-body">
-                                <div class="daily_practice">
-                                    <h6 class="mb-3 fw-bold ">Daily Practice</h6>
-                                    <div class="row g-2">
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6">
-                                            <div class="card bg-lightblue ">
-                                                <div class="card-body">
-                                                    <h6 class="fw-bold mb-0 color-defult color-defult">Online Talking</h6>
-                                                    <small class="color-defult">#Listening</small>
-                                                    <div class="duration d-flex align-items-center justify-content-between pt-5">
-                                                        <span class="fw-bold color-defult">20Min</span>
-                                                        <span class="fw-bold color-careys-pink"><i class="icofont-listening fs-2"></i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 col-md-6 col-lg-12 col-xl-6">
-                                            <div class="card bg-lightgreen ">
-                                                <div class="card-body">
-                                                    <h6 class="fw-bold mb-0 color-defult"> Lesson 3</h6>
-                                                    <small class="color-defult">#Video Call</small>
-                                                    <div class="duration d-flex align-items-center justify-content-between pt-5">
-                                                        <span class="fw-bold color-defult">15Min</span>
-                                                        <span class="fw-bold color-careys-pink"><i class="icofont-video-cam fs-2"></i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="dividers-block"></div>
-                                <div class="team_members">
-                                    <h6 class="mb-3 fw-bold ">Your College Mates</h6>
-                                    <div class="owl-carousel owl-theme owl-carouselone">
-                                        <div class="item text-center">
-                                            <img src="assets/images/sm/avatar3.jpg" alt="" class="rounded-3 img-thumbnail shadow-sm">
-                                            <h6 class="mb-0 rounded-3">Peter Bower</h6>
-                                        </div>
-                                        <div class="item text-center">
-                                            <img src="assets/images/sm/avatar5.jpg" alt="" class="rounded-3 img-thumbnail shadow-sm">
-                                            <h6 class="mb-0 rounded-3">Joshu Turn</h6>
-                                        </div>
-                                        <div class="item text-center">
-                                            <img src="assets/images/sm/avatar8.jpg" alt="" class="rounded-3 img-thumbnail shadow-sm">
-                                            <h6 class="mb-0 rounded-3">Ryan Bell</h6>
-                                        </div>
-                                        <div class="item text-center">
-                                            <img src="assets/images/sm/avatar9.jpg" alt="" class="rounded-3 img-thumbnail shadow-sm">
-                                            <h6 class="mb-0 rounded-3">Sean	Jones</h6>
-                                        </div>
-                                        <div class="item text-center">
-                                            <img src="assets/images/sm/avatar11.jpg" alt="" class="rounded-3 img-thumbnail shadow-sm">
-                                            <h6 class="mb-0 rounded-3">Max Morg</h6>
-                                        </div>
-                                        <div class="item text-center">
-                                            <img src="assets/images/sm/avatar10.jpg" alt="" class="rounded-3 img-thumbnail shadow-sm">
-                                            <h6 class="mb-0 rounded-3">Colin Rees</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="dividers-block"></div>
-                                <div class="upcoming-lessons">
-                                    <h6 class="mb-3 fw-bold ">Upcoming-Lessons</h6>
-                                    <div class="card line-lightblue mb-3">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <div class="lesson_name">
-                                                    <h6 class="mb-0 fw-bold ">Civil Law</h6>
-                                                    <small class="text-muted">Thu 15, 4 PM to 6 PM</small>
-                                                </div>
-                                                <div class="btn-group dropup">
-                                                    <a href="#" class="nav-link py-2 px-3 text-muted" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                    <ul class="dropdown-menu border-0 shadow dropdown-menu-end">
-                                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                        <li><a class="dropdown-item" href="#">Share</a></li>
-                                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-5">
-                                                <div class="avatar-list avatar-list-stacked">
-                                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar2.jpg" alt="">
-                                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar1.jpg" alt="">
-                                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
-                                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar4.jpg" alt="">
-                                                </div>
-                                                <div class="add_lession_person avatar-list">
-                                                    <span class="avatar rounded-circle text-center pointer" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card line-lightgreen">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <div class="lesson_name">
-                                                    <h6 class="mb-0 fw-bold ">Arts and Design</h6>
-                                                    <small class="text-muted">Thu 15, 2 PM to 4 PM</small>
-                                                </div>
-                                                <div class="btn-group dropup">
-                                                    <a href="#" class="nav-link py-2 px-3 text-muted" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                    <ul class="dropdown-menu border-0 shadow dropdown-menu-end">
-                                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                        <li><a class="dropdown-item" href="#">Share</a></li>
-                                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-5">
-                                                <div class="avatar-list avatar-list-stacked">
-                                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar7.jpg" alt="">
-                                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar8.jpg" alt="">
-                                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar9.jpg" alt="">
-                                                    <img class="avatar rounded-circle" src="assets/images/xs/avatar10.jpg" alt="">
-                                                </div>
-                                                <div class="add_lession_person avatar-list">
-                                                    <span class="avatar rounded-circle text-center pointer" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card bg-dark mb-3">
-                            <div class="card-body">
-                                <div class="card-header py-3">
-                                    <h6 class="mb-0 fw-bold text-white">Are you ready next lessons </h6>
-                                </div>
-                                <div class="digital-clock d-flex justify-content-center align-items-center min-height-220">
-                                    <figure>
-                                        <div class="face top"><p id="s"></p></div>
-                                        <div class="face front"><p id="m"></p></div>
-                                        <div class="face left"><p id="h"></p></div>
-                                    </figure>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 mt-lg-0 mt-4">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card p-3">
+                            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url('../../assets/img/ivancik.jpg');">
+                                <span class="mask bg-gradient-dark"></span>
+                                <div class="card-body position-relative z-index-1 h-100 p-3">
+                                    <h6 class="text-white font-weight-bolder mb-3">Hey John!</h6>
+                                    <p class="text-white mb-3">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
+                                    <a class="btn btn-round btn-outline-white mb-0" href="javascript:;">
+                                        Read More
+                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div><!-- Row End -->
+                    <div class="col-lg-12 col-sm-6">
+                        <div class="card mt-4">
+                            <div class="card-header pb-0 p-3">
+                                <h6 class="mb-0">Categories</h6>
+                            </div>
+                            <div class="card-body p-3">
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
+                                                <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="mt-1">
+                                                    <title>spaceship</title>
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g transform="translate(-1720.000000, -592.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                            <g transform="translate(1716.000000, 291.000000)">
+                                                                <g transform="translate(4.000000, 301.000000)">
+                                                                    <path
+                                                                        d="M39.3,0.706666667 C38.9660984,0.370464027 38.5048767,0.192278529 38.0316667,0.216666667 C14.6516667,1.43666667 6.015,22.2633333 5.93166667,22.4733333 C5.68236407,23.0926189 5.82664679,23.8009159 6.29833333,24.2733333 L15.7266667,33.7016667 C16.2013871,34.1756798 16.9140329,34.3188658 17.535,34.065 C17.7433333,33.98 38.4583333,25.2466667 39.7816667,1.97666667 C39.8087196,1.50414529 39.6335979,1.04240574 39.3,0.706666667 Z M25.69,19.0233333 C24.7367525,19.9768687 23.3029475,20.2622391 22.0572426,19.7463614 C20.8115377,19.2304837 19.9992882,18.0149658 19.9992882,16.6666667 C19.9992882,15.3183676 20.8115377,14.1028496 22.0572426,13.5869719 C23.3029475,13.0710943 24.7367525,13.3564646 25.69,14.31 C26.9912731,15.6116662 26.9912731,17.7216672 25.69,19.0233333 L25.69,19.0233333 Z"
+                                                                    ></path>
+                                                                    <path
+                                                                        d="M1.855,31.4066667 C3.05106558,30.2024182 4.79973884,29.7296005 6.43969145,30.1670277 C8.07964407,30.6044549 9.36054508,31.8853559 9.7979723,33.5253085 C10.2353995,35.1652612 9.76258177,36.9139344 8.55833333,38.11 C6.70666667,39.9616667 0,40 0,40 C0,40 0,33.2566667 1.855,31.4066667 Z"
+                                                                    ></path>
+                                                                    <path
+                                                                        d="M17.2616667,3.90166667 C12.4943643,3.07192755 7.62174065,4.61673894 4.20333333,8.04166667 C3.31200265,8.94126033 2.53706177,9.94913142 1.89666667,11.0416667 C1.5109569,11.6966059 1.61721591,12.5295394 2.155,13.0666667 L5.47,16.3833333 C8.55036617,11.4946947 12.5559074,7.25476565 17.2616667,3.90166667 L17.2616667,3.90166667 Z"
+                                                                        opacity="0.598539807"
+                                                                    ></path>
+                                                                    <path
+                                                                        d="M36.0983333,22.7383333 C36.9280725,27.5056357 35.3832611,32.3782594 31.9583333,35.7966667 C31.0587397,36.6879974 30.0508686,37.4629382 28.9583333,38.1033333 C28.3033941,38.4890431 27.4704606,38.3827841 26.9333333,37.845 L23.6166667,34.53 C28.5053053,31.4496338 32.7452344,27.4440926 36.0983333,22.7383333 L36.0983333,22.7383333 Z"
+                                                                        opacity="0.598539807"
+                                                                    ></path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-1 text-dark text-sm">Devices</h6>
+                                                <span class="text-xs">250 in stock, <span class="font-weight-bold">346+ sold</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
+                                                <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="mt-1">
+                                                    <title>settings</title>
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                            <g transform="translate(1716.000000, 291.000000)">
+                                                                <g transform="translate(304.000000, 151.000000)">
+                                                                    <polygon
+                                                                        opacity="0.596981957"
+                                                                        points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667"
+                                                                    ></polygon>
+                                                                    <path
+                                                                        d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"
+                                                                        opacity="0.596981957"
+                                                                    ></path>
+                                                                    <path
+                                                                        d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z"
+                                                                    ></path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-1 text-dark text-sm">Tickets</h6>
+                                                <span class="text-xs">123 closed, <span class="font-weight-bold">15 open</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
+                                        <div class="d-flex align-items-center">
+                                            <div class="icon icon-shape icon-sm me-3 bg-gradient-dark shadow text-center">
+                                                <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="mt-1">
+                                                    <title>box-3d-50</title>
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g transform="translate(-2319.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                            <g transform="translate(1716.000000, 291.000000)">
+                                                                <g transform="translate(603.000000, 0.000000)">
+                                                                    <path
+                                                                        d="M22.7597136,19.3090182 L38.8987031,11.2395234 C39.3926816,10.9925342 39.592906,10.3918611 39.3459167,9.89788265 C39.249157,9.70436312 39.0922432,9.5474453 38.8987261,9.45068056 L20.2741875,0.1378125 L20.2741875,0.1378125 C19.905375,-0.04725 19.469625,-0.04725 19.0995,0.1378125 L3.1011696,8.13815822 C2.60720568,8.38517662 2.40701679,8.98586148 2.6540352,9.4798254 C2.75080129,9.67332903 2.90771305,9.83023153 3.10122239,9.9269862 L21.8652864,19.3090182 C22.1468139,19.4497819 22.4781861,19.4497819 22.7597136,19.3090182 Z"
+                                                                    ></path>
+                                                                    <path
+                                                                        d="M23.625,22.429159 L23.625,39.8805372 C23.625,40.4328219 24.0727153,40.8805372 24.625,40.8805372 C24.7802551,40.8805372 24.9333778,40.8443874 25.0722402,40.7749511 L41.2741875,32.673375 L41.2741875,32.673375 C41.719125,32.4515625 42,31.9974375 42,31.5 L42,14.241659 C42,13.6893742 41.5522847,13.241659 41,13.241659 C40.8447549,13.241659 40.6916418,13.2778041 40.5527864,13.3472318 L24.1777864,21.5347318 C23.8390024,21.7041238 23.625,22.0503869 23.625,22.429159 Z"
+                                                                        opacity="0.7"
+                                                                    ></path>
+                                                                    <path
+                                                                        d="M20.4472136,21.5347318 L1.4472136,12.0347318 C0.953235098,11.7877425 0.352562058,11.9879669 0.105572809,12.4819454 C0.0361450918,12.6208008 6.47121774e-16,12.7739139 0,12.929159 L0,30.1875 L0,30.1875 C0,30.6849375 0.280875,31.1390625 0.7258125,31.3621875 L19.5528096,40.7750766 C20.0467945,41.0220531 20.6474623,40.8218132 20.8944388,40.3278283 C20.963859,40.1889789 21,40.0358742 21,39.8806379 L21,22.429159 C21,22.0503869 20.7859976,21.7041238 20.4472136,21.5347318 Z"
+                                                                        opacity="0.7"
+                                                                    ></path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="d-flex flex-column">
+                                                <h6 class="mb-1 text-dark text-sm">Error logs</h6>
+                                                <span class="text-xs">1 is active, <span class="font-weight-bold">40 closed</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-sm-6">
+                        <div class="card mt-4">
+                            <div class="card-body p-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img src="../../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow w-100" />
+                                    </div>
+                                    <div class="col-8 my-auto">
+                                        <p class="text-muted text-sm font-weight-bold">
+                                            Today is Martina's birthday. Wish her the best of luck!
+                                        </p>
+                                        <a href="javascript:;" class="btn btn-sm bg-gradient-dark mb-0">Send message</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Modal Members-->
-        <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title  fw-bold" id="addUserLabel">Invite Friend's</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="inviteby_email">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Members Invite" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <button class="btn btn-dark" type="button" id="button-addon2">Members Invite</button>
+        <div class="row mt-4">
+            <div class="col-sm-6">
+                <div class="card h-100">
+                    <div class="card-header pb-0 p-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="mb-0">Transactions</h6>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                <i class="far fa-calendar-alt me-2" aria-hidden="true"></i>
+                                <small>23 - 30 March 2021</small>
+                            </div>
                         </div>
                     </div>
-                    <div class="members_list">
-                        <h6 class="fw-bold ">Members of e-Learn</h6>
-                        <ul class="list-unstyled list-group list-group-custom list-group-flush mb-0">
-                            <li class="list-group-item py-3 text-center text-md-start">
-                                <div class="d-flex align-items-center flex-column flex-sm-column flex-md-row">
-                                    <div class="no-thumbnail mb-2 mb-md-0">
-                                        <img class="avatar lg rounded-circle" src="assets/images/xs/avatar2.jpg" alt="">
-                                    </div>
-                                    <div class="flex-fill ms-3 text-truncate">
-                                        <h6 class="mb-0  fw-bold">Rachel Carr(you)</h6>
-                                        <span class="text-muted">rachel.carr@gmail.com</span>
-                                    </div>
-                                    <div class="members-action">
-                                        <span class="members-role ">Admin</span>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="icofont-ui-settings  fs-6"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                              <li><a class="dropdown-item" href="#"><i class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a></li>
-                                              <li><a class="dropdown-item" href="#"><i class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a></li>
-                                            </ul>
+                    <div class="card-body p-3">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 justify-content-between ps-0 pb-0 border-radius-lg">
+                                <div class="d-flex">
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-down" aria-hidden="true"></i></button>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark text-sm">Netflix</h6>
+                                            <span class="text-xs">27 March 2020, at 12:30 PM</span>
                                         </div>
+                                    </div>
+                                    <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold ms-auto">
+                                        - $ 2,500
                                     </div>
                                 </div>
+                                <hr class="horizontal dark mt-3 mb-2" />
                             </li>
-                            <li class="list-group-item py-3 text-center text-md-start">
-                                <div class="d-flex align-items-center flex-column flex-sm-column flex-md-row">
-                                    <div class="no-thumbnail mb-2 mb-md-0">
-                                        <img class="avatar lg rounded-circle" src="assets/images/xs/avatar3.jpg" alt="">
-                                    </div>
-                                    <div class="flex-fill ms-3 text-truncate">
-                                        <h6 class="mb-0  fw-bold">Lucas Baker<a href="#" class="link-secondary ms-2">(Resend invitation)</a></h6>
-                                        <span class="text-muted">lucas.baker@gmail.com</span>
-                                    </div>
-                                    <div class="members-action">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Members
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                              <li>
-                                                  <a class="dropdown-item" href="#">
-                                                    <i class="icofont-check-circled"></i>
-                                                        Member
-                                                    <span>Can view, edit, delete, comment on and save files</span>
-                                                   </a>
-                                                   
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fs-6 p-2 me-1"></i>
-                                                            Admin
-                                                        <span>Member, but can invite and manage team members</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                            <li class="list-group-item border-0 justify-content-between ps-0 pb-0 border-radius-lg">
+                                <div class="d-flex">
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark text-sm">Apple</h6>
+                                            <span class="text-xs">23 March 2020, at 04:30 AM</span>
                                         </div>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="icofont-ui-settings  fs-6"></i>
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                              <li><a class="dropdown-item" href="#"><i class="icofont-delete-alt fs-6 me-2"></i>Delete Member</a></li>
-                                            </ul>
-                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold ms-auto">
+                                        + $ 2,000
                                     </div>
                                 </div>
+                                <hr class="horizontal dark mt-3 mb-2" />
                             </li>
-                            <li class="list-group-item py-3 text-center text-md-start">
-                                <div class="d-flex align-items-center flex-column flex-sm-column flex-md-row">
-                                    <div class="no-thumbnail mb-2 mb-md-0">
-                                        <img class="avatar lg rounded-circle" src="assets/images/xs/avatar8.jpg" alt="">
-                                    </div>
-                                    <div class="flex-fill ms-3 text-truncate">
-                                        <h6 class="mb-0  fw-bold">Una Coleman</h6>
-                                        <span class="text-muted">una.coleman@gmail.com</span>
-                                    </div>
-                                    <div class="members-action">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Members
-                                            </button>
-                                            <ul class="dropdown-menu dropdown-menu-end">
-                                              <li>
-                                                  <a class="dropdown-item" href="#">
-                                                    <i class="icofont-check-circled"></i>
-                                                        Member
-                                                    <span>Can view, edit, delete, comment on and save files</span>
-                                                   </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="fs-6 p-2 me-1"></i>
-                                                            Admin
-                                                        <span>Member, but can invite and manage team members</span>
-                                                       </a>
-                                                </li>
-                                            </ul>
+                            <li class="list-group-item border-0 justify-content-between ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex">
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark text-sm">Partner #22213</h6>
+                                            <span class="text-xs">19 March 2020, at 02:50 AM</span>
                                         </div>
-                                        <div class="btn-group">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn bg-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="icofont-ui-settings  fs-6"></i>
-                                                </button>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                  <li><a class="dropdown-item" href="#"><i class="icofont-ui-password fs-6 me-2"></i>ResetPassword</a></li>
-                                                  <li><a class="dropdown-item" href="#"><i class="icofont-chart-line fs-6 me-2"></i>ActivityReport</a></li>
-                                                  <li><a class="dropdown-item" href="#"><i class="icofont-delete-alt fs-6 me-2"></i>Suspend member</a></li>
-                                                  <li><a class="dropdown-item" href="#"><i class="icofont-not-allowed fs-6 me-2"></i>Delete Member</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold ms-auto">
+                                        + $ 1,400
                                     </div>
                                 </div>
                             </li>
@@ -888,20 +762,105 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-6 mt-sm-0 mt-4">
+                <div class="card h-100">
+                    <div class="card-header pb-0 p-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="mb-0">Revenue</h6>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-end align-items-center">
+                                <i class="far fa-calendar-alt me-2" aria-hidden="true"></i>
+                                <small>01 - 07 June 2021</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-3">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 justify-content-between ps-0 pb-0 border-radius-lg">
+                                <div class="d-flex">
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark text-sm">via PayPal</h6>
+                                            <span class="text-xs">07 June 2021, at 09:00 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold ms-auto">
+                                        + $ 4,999
+                                    </div>
+                                </div>
+                                <hr class="horizontal dark mt-3 mb-2" />
+                            </li>
+                            <li class="list-group-item border-0 justify-content-between ps-0 pb-0 border-radius-lg">
+                                <div class="d-flex">
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark text-sm">Partner #90211</h6>
+                                            <span class="text-xs">07 June 2021, at 05:50 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold ms-auto">
+                                        + $ 700
+                                    </div>
+                                </div>
+                                <hr class="horizontal dark mt-3 mb-2" />
+                            </li>
+                            <li class="list-group-item border-0 justify-content-between ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex">
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-down" aria-hidden="true"></i></button>
+                                        <div class="d-flex flex-column">
+                                            <h6 class="mb-1 text-dark text-sm">Services</h6>
+                                            <span class="text-xs">07 June 2021, at 07:10 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold ms-auto">
+                                        - $ 1,800
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
+        <footer class="footer pt-3">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-6 mb-lg-0 mb-4">
+                        <div class="copyright text-center text-sm text-muted text-lg-start">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            2021, made with <i class="fa fa-heart" aria-hidden="true"></i> by
+                            <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
+                            for a better web.
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                            <li class="nav-item">
+                                <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-</div>
-
-<!-- Jquery Core Js -->
-<script src="assets/bundles/libscripts.bundle.js"></script>
-
-<!-- Plugin Js-->
-<script src="../node_modules/owl.carousel2/dist/owl.carousel.min.js"></script>
-<script src="assets/bundles/apexcharts.bundle.js"></script> 
-
-<!-- Jquery Page Js -->
-<script src="../js/template.js"></script>
-<script src="../js/page/elearn-index.js"></script>
-</body>
-</html>
+    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div>
+    <div class="ps__rail-y" style="top: 0px; height: 629px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 329px;"></div></div>
+</main>
+@endsection

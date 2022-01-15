@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MentorController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\Admin\ReferController;
 use App\Models\Category;
@@ -48,6 +49,9 @@ Route::group( [
         Route::post('/payment','PaymentController@store')->name('payment');
         Route::get('/subscription', 'PaymentController@subscription')->name('subscription');
         Route::post('/subscription-payment', 'PaymentController@subscription_post')->name('subscription-payment');
+
+        Route::post('/mentor_create', 'MentorController@store')->name('mentor.create');
+        Route::get('/class_schedule', 'MentorController@class_schedule')->name('class_schedule');
         // Route::post('/student_data','PaymentController@store')->name('student.data');
 });
 
@@ -88,6 +92,7 @@ Route::group( [
 ],function(){
     Route::get('orders', 'OrderController@index')->name('orders');
     Route::post('orderstatus_change', 'OrderController@status')->name('orderstatus_change');
+
     Route::get('/index','UserRoleController@index')->name('admin_user_role_index');
     Route::get('/view/{id}','UserRoleController@view')->name('admin_user_role_view');
     Route::get('/create','UserRoleController@create')->name('admin_user_role_create');

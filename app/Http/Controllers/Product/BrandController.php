@@ -24,7 +24,7 @@ class BrandController extends Controller
 
 
         $main_categories = MainCategory::where('status',1)->get();
-        $categories =
+       
 
         $collection = Brand::where('status',1)->latest()->paginate(10);
         return view('admin.product.brand.index',compact('collection'));

@@ -1,0 +1,368 @@
+@media (max-width: 768px) {
+  /* Short use */
+  :root {
+    --c-white: #ffffff;
+    --c-milk: #ececec;
+    --c-ash: #c5c6c7;
+    --c-blue: #0e75bb;
+    --c-deep: #014471;
+    --c-light: #98cfff;
+    --fw-book: 400;
+    --fw-med: 500;
+    --fw-black: 700;
+  }
+  p {
+    font-size: 11px !important;
+  }
+
+  /* ===== index.html ===== */
+
+  /* Nav Section */
+  #nav {
+    padding: 10px 0;
+  }
+  #nav .toggle-btn {
+    color: var(--c-blue);
+    font-size: 25px;
+    padding: 0 5px;
+  }
+  
+  .toggle-menu li a {
+    text-align: center;
+    padding: 0;
+    padding-bottom: 5px;
+    font-size: 11px;
+    border-bottom: 1px solid var(--c-milk);
+  }
+
+  .toggle-menu .sign-item {
+    font-weight: var(--fw-exbold) !important;
+  }
+  /* Nav Section end */
+
+  /* Banner Section */
+  #banner,
+  #gyan-box,
+  #e-learn,
+  #fundraising,
+  #benefit,
+  #join,
+  #course {
+    margin-bottom: 15px;
+  }
+  #banner .container {
+    padding: 0;
+  }
+  /* Banner Section end */
+
+  /* title */
+  .section-title h1 {
+    font-size: 24px;
+    padding: 15px 0;
+  }
+  .div-title h2 {
+    font-size: 21px;
+    padding: 10px 0;
+  }
+  .section-title::before,
+  .section-title::after {
+    width: 20%;
+    height: 2px;
+  }
+  .div-title::after {
+    width: 50%;
+    height: 2px;
+  }
+  /* title end */
+
+  /* Gyan Baksho Section */
+  .gyan-div .gyan-item {
+    width: 105px;
+    height: 105px;
+    border-radius: 15px;
+  }
+  /* Gyan Baksho Section end */
+
+  /* E-learning Section */
+  .elearn-div-inner .elearn-box {
+    width: 70px;
+    height: 70px;
+    margin: 10px 5px 10px;
+  }
+  /* E-learning Section end */
+
+  /* Fundraising Section */
+  #fundraising .fund-div {
+    padding: 15px 10px;
+  }
+  .fund-div .fund-item p {
+    padding: 10px 0;
+  }
+  .fund-div .fund-item a {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  .social .social-div {
+    padding: 15px 10px;
+  }
+  .social-div .social-item h4 {
+    font-size: 14px;
+  }
+  .social-div .social-item p {
+    margin: 0;
+  }
+  .social-div .social-item a {
+    font-size: 11px;
+  }
+  .social .volunteer-div {
+    padding: 20px 10px;
+  }
+  .social .volunteer-div .volunteer-img {
+    width: 50%;
+  }
+  .social .volunteer-div h6 {
+    font-size: 14px;
+  }
+  .social .volunteer-div h2 {
+    font-size: 20px;
+  }
+  .social .volunteer-div a {
+    font-size: 11px;
+  }
+  /* Fundraising Section end */
+
+  /* Footer Section */
+  #footer {
+    margin-top: 30px;
+    padding: 20px 0;
+  }
+  #footer .footer-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .contact-div .contact-item {
+    font-size: 11px;
+    padding: 5px 0;
+  }
+  .contact-div .contact-item i {
+    padding-right: 5px;
+  }
+  .contact-div .link-item {
+    padding-right: 8px;
+    font-size: 16px;
+  }
+  #footer .about-div h4 i {
+    font-size: 20px;
+  }
+  #sub-footer p {
+    font-family: var(--f-gothic);
+    font-size: 11px;
+  }
+  /* Footer Section end */
+
+  /* ===== chat.html ===== */
+
+  /* Banner Section */
+  .chat-banner .banner-inner {
+    padding: 30px 10px 15px;
+  }
+  .chat-banner .banner-inner h4 {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+  .chat-banner .banner-inner h2 {
+    font-size: 24px;
+  }
+  .chat-banner .banner-inner p {
+    font-size: 12px;
+    margin: 10px 0;
+  }
+  .chat-banner .chat-select,
+  .chat-banner .chat-search span,
+  .chat-banner .chat-search input,
+  .chat-banner .chat-search button {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+  /* Banner Section end*/
+
+  /* Student Section */
+  #student,
+  #sholarship {
+    padding: 15px 0;
+  }
+  #student h1 {
+    font-size: 21px;
+  }
+  #student p {
+    padding-bottom: 10px;
+  }
+  #student .student-item::before,
+  #scholarship .student-item::before {
+    height: 20px;
+  }
+  #student .student-item,
+  #scholarship .student-item {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .student-item .student-item-img {
+    border: 2px solid var(--c-white);
+    left: 15px;
+    top: 10px;
+    width: 70px;
+    height: 70px;
+  }
+  .student-item .student-text {
+    margin-top: 75px;
+  }
+  .student-item .student-text h2 {
+    font-size: 16px;
+  }
+  .student-item .student-text p {
+    padding: 5px;
+  }
+  .student-item .student-text a {
+    font-weight: var(--fw-med);
+    border: 1px solid var(--c-blue);
+    border-radius: 15px;
+    font-size: 11px;
+    padding: 2px 5px;
+  }
+  /* Student Section end */
+
+  /* Scholarship Section */
+  #scholarship .scholarship-text {
+    padding: 10px;
+  }
+  .scholarship-item .scholarship-text p {
+    padding-bottom: 5px;
+  }
+  #scholarship .student-item {
+    margin-top: 10px;
+  }
+  /* Scholarship Section end */
+
+  /* ===== e-learning.html ===== */
+
+  /* Benefit Section */
+  #benefit .benefit-div,
+  #benefit .benefit-view {
+    margin-bottom: 20px;
+  }
+  #benefit .benefit-div h1,
+  #parent .parent-div h1 {
+    font-size: 21px;
+    margin: 20px 0 25px;
+  }
+  .benefit-div .benefit-item p {
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+  .benefit-view .view-item p {
+    padding: 10px 0 0;
+  }
+  /* Benefit Section end */
+
+  /* Join Section */
+  .e-learn-banner .elearn-div,
+  #e-learn .elearn-div,
+  #join .join-div {
+    padding: 20px;
+  }
+  .join-div .join-item {
+    border: none;
+  }
+  .join-div .join-item h4 {
+    font-size: 21px;
+    padding-top: 10px;
+    margin-bottom: 15px;
+  }
+  .elearn-div .elearn-btn a,
+  .join-btn a {
+    font-size: 18px;
+    padding: 5px 20px;
+    margin-top: 5px;
+  }
+  /* Join Section end */
+
+  /* Course Section */
+  #course .course-div {
+    margin-bottom: 20px;
+  }
+  #course .course-div h2 {
+    font-size: 21px;
+    margin: 15px 0 5px;
+  }
+  .course-div .course-subtitle {
+    margin-bottom: 10px;
+  }
+  .course-div .course-subtitle p {
+    width: 75%;
+  }
+  .course-div .course-subtitle a {
+    font-size: 12px;
+    width: 25%;
+  }
+  .course-div .course-slider,
+  .parent-div .parent-slider {
+    padding: 0;
+  }
+  .course-slider .swiper-button-next,
+  .course-slider .swiper-button-prev,
+  .parent-slider .swiper-button-next,
+  .parent-slider .swiper-button-prev {
+    display: none;
+  }
+  .course-div .course-item {
+    padding: 10px;
+  }
+  .course-div .course-item h4 {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  #course .course-div-last,
+  #startup .startup-div {
+    padding: 20px 15px;
+  }
+  .course-div-last .join-btn {
+    margin-top: 10px;
+  }
+  /* Course Section end */
+
+  /* Parent Section */
+  .parent-div .parent-item h4 {
+    margin: 5px 0 10px;
+  }
+  /* Parent Section end */
+
+  /* ===== e-learning.html ===== */
+
+  /* Offer Section */
+  #offer,
+  #startup {
+    margin-bottom: 15px;
+  }
+  #offer h1,
+  #startup h1 {
+    font-size: 24px;
+    padding-bottom: 10px;
+  }
+  #offer .offer-item {
+    padding: 0 5px;
+  }
+  #offer .offer-item h6 {
+    font-size: 16px;
+    padding-top: 5px;
+  }
+  /* Offer Section end */
+
+  /* Startup Section */
+  #startup .startup-div {
+    border-radius: 10px;
+  }
+  .startup-div .startup-item p {
+    padding: 10px 0 0;
+  }
+  /* Startup Section end */
+}

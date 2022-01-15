@@ -4,12 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        if(Auth::user()->role_id == 2) {
+            return view('admin.index');   
+        }
+        else if(Auth::user()->role_id == 3) {
+            return view('admin.mentor.index');
+        }
+        else {
+            return view('admin.index');
+        }
     }
 
 
