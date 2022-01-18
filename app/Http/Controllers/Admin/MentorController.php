@@ -64,7 +64,11 @@ class MentorController extends Controller
 
         return view('admin.mentor.dashboard');
     }
-
+    
+    public function class_schedule() {
+        
+        return view('admin.mentor.schedule');
+    }
     /**
      * Display the specified resource.
      *

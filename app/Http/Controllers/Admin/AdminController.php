@@ -10,15 +10,15 @@ class AdminController extends Controller
 {
     public function index()
     {
-        if(Auth::user()->role_id == 2) {
+        // if(Auth::user()->role_id == 2) {
             return view('admin.index');   
-        }
-        else if(Auth::user()->role_id == 3) {
-            return view('admin.mentor.index');
-        }
-        else {
-            return view('admin.index');
-        }
+        // }
+        // else if(Auth::user()->role_id == 3) {
+        //     return view('admin.mentor.index');
+        // }
+        // else {
+        //     return view('admin.index');
+        // }
     }
 
 

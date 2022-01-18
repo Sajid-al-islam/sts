@@ -46,7 +46,8 @@ p {
   font-weight: var(--fw-bold);
   display: block;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 11px;
+  font-weight: 700;
   padding-right: 25px;
 }
 .nav-sign .sign-item {
