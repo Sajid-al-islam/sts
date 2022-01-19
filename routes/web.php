@@ -42,17 +42,17 @@ Route::group( [
     ],function(){
 
         Route::get('/','AdminController@index')->name('admin_index');
-        // Route::get('/profile','AdminController@profile')->name('admin_profile');
-        // Route::get('settings','AdminController@settings')->name('admin_settings');
-        // Route::get('/referel', 'ReferController@index')->name('referel');
-        // Route::get('/subscribe','SubscribeController@index')->name('subscribe');
-        // Route::post('/payment','PaymentController@store')->name('payment');
-        // Route::get('/subscription', 'PaymentController@subscription')->name('subscription');
-        // Route::post('/subscription-payment', 'PaymentController@subscription_post')->name('subscription-payment');
+        Route::get('/profile','AdminController@profile')->name('admin_profile');
+        Route::get('settings','AdminController@settings')->name('admin_settings');
+        Route::get('/referel', 'ReferController@index')->name('referel');
+        Route::get('/subscribe','SubscribeController@index')->name('subscribe');
+        Route::post('/payment','PaymentController@store')->name('payment');
+        Route::get('/subscription', 'PaymentController@subscription')->name('subscription');
+        Route::post('/subscription-payment', 'PaymentController@subscription_post')->name('subscription-payment');
 
-        // Route::post('/mentor_create', 'MentorController@store')->name('mentor.create');
-        // Route::get('/class_schedule', 'MentorController@class_schedule')->name('class_schedule');
-        // Route::post('/student_data','PaymentController@store')->name('student.data');
+        Route::post('/mentor_create', 'MentorController@store')->name('mentor.create');
+        Route::get('/class_schedule', 'MentorController@class_schedule')->name('class_schedule');
+        Route::post('/student_data','PaymentController@store')->name('student.data');
 });
 
 
@@ -90,8 +90,8 @@ Route::group( [
     'middleware'=>['auth','check_user_is_active','super_admin'],
     'namespace'=>'Admin'
 ],function(){
-    // Route::get('orders', 'OrderController@index')->name('orders');
-    // Route::post('orderstatus_change', 'OrderController@status')->name('orderstatus_change');
+    Route::get('orders', 'OrderController@index')->name('orders');
+    Route::post('orderstatus_change', 'OrderController@status')->name('orderstatus_change');
 
     Route::get('/index','UserRoleController@index')->name('admin_user_role_index');
     Route::get('/view/{id}','UserRoleController@view')->name('admin_user_role_view');

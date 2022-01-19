@@ -19,6 +19,8 @@ class OrderController extends Controller
     {
         
         $payment_user_info = Payment::get('student_id')->toArray();
+        
+        $user_info = '';
         foreach($payment_user_info as $info) {
             $user_info = User::where('id', $info)->get()->pluck('name')->toArray();
         }
